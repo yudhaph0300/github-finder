@@ -16,7 +16,6 @@ function User() {
     location,
     bio,
     blog,
-    twitter_username,
     login,
     html_url,
     followers,
@@ -38,7 +37,7 @@ function User() {
    }
 
   return (
-    <div>
+    <>
       <div className="w-full mx-auto lg:w-10/12">
         <div className="mb-4">
           <Link to='/' className="btn">
@@ -84,10 +83,76 @@ function User() {
               </div>
             </div>
                   
+              <div className="w-full rounded-lg shadow-md bg-base-100 stats">
+                {location && (
+                  <div className="stat">
+                    <div className="stat-title text-md">
+                      Location
+                    </div>
+                    <div className="text-lg stat-value">
+                      {location}
+                    </div>
+                  </div>
+                )}
+                {blog && (
+                  <div className="stat">
+                    <div className="stat-title text-md">
+                      Website
+                    </div>
+                    <div className="text-lg stat-value">
+                      <a
+                        href={`https//${blog}`}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        {blog}
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+          </div>
+        </div>
+        <div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
+          <div className="stat">
+            <div className="stat-figure">
+              <FaUsers className="text-3xl md:text-5xl"/>
+            </div>
+            <div className="stat-title pr-5">Followers</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {followers}
+            </div>
+          </div>
+          <div className="stat">
+            <div className="stat-figure">
+              <FaUserFriends className="text-3xl md:text-5xl"/>
+            </div>
+            <div className="stat-title pr-5">Following</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {following}
+            </div>
+          </div>
+          <div className="stat">
+            <div className="stat-figure">
+              <FaCodepen className="text-3xl md:text-5xl"/>
+            </div>
+            <div className="stat-title pr-5">Public Repos</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {public_repos}
+            </div>
+          </div>
+          <div className="stat">
+            <div className="stat-figure">
+              <FaStore className="text-3xl md:text-5xl"/>
+            </div>
+            <div className="stat-title pr-5">Public Gists</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {public_gists}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
